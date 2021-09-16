@@ -1,13 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Api from './pages/Api';
-import Test from './pages/Test';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+
+import ManagerLogIn from './pages/manager_pages/ManagerLogIn'
 
 function App() {
   return (
     <Router>
-      <Route path="/api" exact component={Api} />
-      <Route path="/test" exact component={Test} />
+      <Route path="/manager/" exact component={ManagerLogIn} />
+      <Redirect to="/manager/" />
     </Router>
   );
 }

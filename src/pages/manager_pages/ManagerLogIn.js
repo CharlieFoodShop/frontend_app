@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { Card, Input, Button, Spin, message, Row, Col, Form } from 'antd';
+import { Card, Input, Button, Spin, message, Row, Col, Form, Checkbox } from 'antd';
 import { UserOutlined, KeyOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import '../../static/css/manager_css/login.css'
@@ -30,6 +30,8 @@ export default () => {
                             required
                             prefix={<KeyOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
                         />
+                        <br /><br />
+                        <Checkbox>Remember me</Checkbox>
                         <br /><br />
                         <Button type="primary" size="large" block htmlType="submit" >LOG IN</Button>
                         <br /><br />

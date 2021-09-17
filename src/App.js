@@ -1,13 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 import ManagerLogIn from './pages/manager_pages/ManagerLogIn'
+import ManagerRegister from './pages/manager_pages/ManagerRegister';
+import ManagerResetPassword from './pages/manager_pages/ManagerResetPassword';
+import ManagerResetPasswordToken from './pages/manager_pages/ManagerResetPasswordToken';
 
 function App() {
   return (
     <Router>
-      <Route path="/manager/" exact component={ManagerLogIn} />
-      <Redirect to="/manager/" />
+      <Switch>
+        <Route path="/manager/login" exact component={ManagerLogIn} />
+        <Route path="/manager/register" exact component={ManagerRegister} />
+        <Route path="/manager/reset-password/" exact component={ManagerResetPassword} />
+        <Route path="/manager/reset-password/:token" exact component={ManagerResetPasswordToken} />
+        <Redirect to="/manager/login" />
+      </Switch>
     </Router>
   );
 }

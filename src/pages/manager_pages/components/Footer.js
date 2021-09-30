@@ -3,7 +3,7 @@ import '../../../static/css/manager_css/footer.css';
 import { Link } from 'react-router-dom';
 import MANAGER_SERVICE_PATH from '../../../config/MANAGER_API_URL';
 
-export default () => {
+const Footer = () => {
     return (
         <div className="footer-div">
             {'Copyright © '}
@@ -14,3 +14,5 @@ export default () => {
         </div>
     )
 }
+
+export default Footer;

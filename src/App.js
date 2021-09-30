@@ -11,11 +11,11 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/manager/" exact component={ManagerIndex} />
         <Route path="/manager/login" exact component={ManagerLogIn} />
         <Route path="/manager/register" exact component={ManagerRegister} />
         <Route path="/manager/reset-password/" exact component={ManagerResetPassword} />
         <Route path="/manager/reset-password/:token" exact component={ManagerResetPasswordToken} />
+        <Route path="/manager/" component={ManagerIndex} />
         <Redirect to="/manager/login" />
       </Switch>
     </Router>

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { message, Row, Col, List, Typography, Button } from 'antd';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { message, Row, Col, List, Typography, Button, Divider } from 'antd';
 import axios from 'axios';
 import MANAGER_SERVICE_PATH from '../../../config/MANAGER_API_URL';
+import '../../../static/css/manager_css/list.css';
 
 const FoodShopList = (props) => {
 
     const [helloTitle, setHelloTitle] = useState('');
     const [foodShopList, setFoodShopList] = useState([]);
     const [managerId, setManagerId] = useState(null);
-
-    let manager_id = null;
 
     useEffect(async () => {
         try {
@@ -25,13 +25,14 @@ const FoodShopList = (props) => {
 
             let list_result = await getFoodShopList(manager_id);
             setFoodShopList(list_result.data.data);
+
+            console.log(list_result.data.data);
         } catch (e) {
             return message.error(e.message);
         }
     }, []);
 
     const handleAddFoodShop = () => {
-        console.log(managerId);
         if (managerId) {
             return props.history.push('/manager/add_food_shop/' + managerId);
         } else {
@@ -73,6 +74,24 @@ const FoodShopList = (props) => {
                     <Button style={{ float: 'right' }} type="primary" onClick={handleAddFoodShop}>ADD NEW FOOD SHOP</Button>
                 </Col>
             </Row>
+            <Divider />
+            <List
+                itemLayout="vertical"
+                dataSource={foodShopList}
+                renderItem={item => (
+                    <List.Item>
+                        <Link to={"/manager/food_shop_detail/" + item.food_shop_id} >
+                            <div className="list-title">{item.food_shop_name}</div>
+                        </Link>
+                        <div
+                            className="list-context"
+                        >
+                            <Typography.Title level={5}>{item.food_shop_description}</Typography.Title>
+                            <img src={item.image_url} alt="shop_image" />
+                        </div>
+                    </List.Item>
+                )}
+            />
         </div>
     )
 }

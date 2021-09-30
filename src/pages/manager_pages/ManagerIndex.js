@@ -11,6 +11,7 @@ import MANAGER_SERVICE_PATH from '../../config/MANAGER_API_URL';
 import Footer from './components/Footer';
 import FoodShopList from './components/FoodShopList';
 import AddFoodShop from './components/AddFoodShop';
+import FoodShopDetail from './components/FoodShopDetail';
 
 const ManagerIndex = (props) => {
     const [loading, setLoading] = useState(false);
@@ -79,6 +80,7 @@ const ManagerIndex = (props) => {
                                     <Switch>
                                         <Route path="/manager/" exact component={FoodShopList} />
                                         <Route path="/manager/add_food_shop/:manager_id" exact component={AddFoodShop} />
+                                        <Route path="/manager/food_shop_detail/:food_shop_id" exact component={FoodShopDetail} />
                                         <Redirect to="/manager/" />
                                     </Switch>
                                 </Router>

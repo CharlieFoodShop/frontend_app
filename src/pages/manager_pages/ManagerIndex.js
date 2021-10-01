@@ -50,6 +50,9 @@ const ManagerIndex = (props) => {
 
     const handleMenuClick = (e) => {
         switch (e.key) {
+            case '1':
+                props.history.push('/manager/');
+                break;
             case '7':
                 handleLogout();
                 break;
@@ -76,14 +79,10 @@ const ManagerIndex = (props) => {
                     <Layout className="site-layout">
                         <Layout.Content style={{ margin: '0 16px' }}>
                             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                                <Router>
-                                    <Switch>
-                                        <Route path="/manager/" exact component={FoodShopList} />
-                                        <Route path="/manager/add_food_shop/:manager_id" exact component={AddFoodShop} />
-                                        <Route path="/manager/food_shop_detail/:food_shop_id" exact component={FoodShopDetail} />
-                                        <Redirect to="/manager/" />
-                                    </Switch>
-                                </Router>
+                                <Route path="/manager/" exact component={FoodShopList} />
+                                <Route path="/manager/add_food_shop/:manager_id" exact component={AddFoodShop} />
+                                <Route path="/manager/food_shop_detail/:food_shop_id" exact component={FoodShopDetail} />
+                                <Redirect to="/manager/" />
                             </div>
                         </Layout.Content>
                         <Footer />

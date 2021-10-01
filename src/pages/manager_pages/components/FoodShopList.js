@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { message, Row, Col, List, Typography, Button, Divider } from 'antd';
+import { message, Row, Col, Card, Typography, Button, Divider } from 'antd';
 import axios from 'axios';
 import MANAGER_SERVICE_PATH from '../../../config/MANAGER_API_URL';
-import '../../../static/css/manager_css/list.css';
 
 const FoodShopList = (props) => {
 
@@ -26,9 +25,8 @@ const FoodShopList = (props) => {
             let list_result = await getFoodShopList(manager_id);
             setFoodShopList(list_result.data.data);
 
-            console.log(list_result.data.data);
         } catch (e) {
-            return message.error(e.message);
+            return;
         }
     }, []);
 
@@ -75,23 +73,23 @@ const FoodShopList = (props) => {
                 </Col>
             </Row>
             <Divider />
-            <List
-                itemLayout="vertical"
-                dataSource={foodShopList}
-                renderItem={item => (
-                    <List.Item>
+            {
+
+                foodShopList.map((item, index) => (
+                    <div style={{ width: 220, float: 'left', margin: '2%' }} key={index}>
                         <Link to={"/manager/food_shop_detail/" + item.food_shop_id} >
-                            <div className="list-title">{item.food_shop_name}</div>
+                            <Card
+                                hoverable
+                                cover={<img style={{ height: 200 }} alt="food_shop" src={item.image_url} />}
+                                bordered={false}>
+                                <Card.Meta title={item.food_shop_name} description={item.food_shop_description} />
+                            </Card>
+
                         </Link>
-                        <div
-                            className="list-context"
-                        >
-                            <Typography.Title level={5}>{item.food_shop_description}</Typography.Title>
-                            <img src={item.image_url} alt="shop_image" />
-                        </div>
-                    </List.Item>
-                )}
-            />
+                    </div>
+                ))
+
+            }
         </div>
     )
 }

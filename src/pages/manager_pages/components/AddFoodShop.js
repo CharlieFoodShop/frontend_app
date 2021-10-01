@@ -70,6 +70,11 @@ const AddFoodShop = (props) => {
         }
     }
 
+    const getShopCategory = async () => {
+        let results = await axios({ method: 'get', url: MANAGER_SERVICE_PATH.GET_FOOD_SHOP_CATEGORY_LIST });
+        return results;
+    }
+
     const updateAddressByCoord = async (lat, lon) => {
         try {
             let results = await axios({ method: 'get', url: `http://dev.virtualearth.net/REST/v1/Locations/${lat},${lon}?key=${KEY.BingMap_key}` });
@@ -155,11 +160,6 @@ const AddFoodShop = (props) => {
         }
     }
 
-    const getShopCategory = async () => {
-        let results = await axios({ method: 'get', url: MANAGER_SERVICE_PATH.GET_FOOD_SHOP_CATEGORY_LIST });
-        return results;
-    }
-
     const handleImageUpload = (e) => {
         let file = e.target.files[0];
         let formdata = new FormData();
@@ -185,6 +185,7 @@ const AddFoodShop = (props) => {
                             required
                         />
                     </Col>
+                    <Col span={7}></Col>
                     <Col span={8}>
                         <Typography.Title level={5} style={{ marginLeft: '5px' }}>
                             Food Shop Category

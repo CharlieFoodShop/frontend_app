@@ -16,6 +16,7 @@ import FoodItemDetail from './components/FoodItemDetail';
 import AddFoodItem from './components/AddFoodItem';
 import AddFoodItemCategory from './components/AddFoodItemCategory';
 import EditFoodShop from './components/EditFoodShop';
+import EditFoodItem from './components/EditFoodItem';
 
 const ManagerIndex = (props) => {
     const [loading, setLoading] = useState(false);
@@ -90,7 +91,7 @@ const ManagerIndex = (props) => {
                                 <Route path="/manager/add_food_item/:food_shop_id" exact component={AddFoodItem} />
                                 <Route path="/manager/add_food_item_category/:food_shop_id" exact component={AddFoodItemCategory} />
                                 <Route path="/manager/edit_food_shop/:food_shop_id" exact component={EditFoodShop} />
-
+                                <Route path="/manager/edit_food_item/:food_item_id" exact component={EditFoodItem} />
                             </div>
                         </Layout.Content>
                         <Footer />

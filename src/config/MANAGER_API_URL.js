@@ -26,6 +26,7 @@ const MANAGER_SERVICE_PATH = {
     GET_FOOD_ITEM_LIST: IP_URL_FOOD_ITEM + "get_all_food_item_by_category",
     GET_FOOD_ITEM_CATEGORY_LIST: IP_URL_FOOD_SHOP + "get_food_category_by_food_shop",
     GET_FOOD_ITEM_DETAIL: IP_URL_FOOD_ITEM + "get_food_item_by_food_item_id",
+    UPDATE_FOOD_ITEM: IP_URL_FOOD_ITEM + "update_food_item",
     UPLOAD_FOOD_ITEM_IMAGE: IP_URL_FOOD_ITEM + "upload_food_item_image"
 }
 

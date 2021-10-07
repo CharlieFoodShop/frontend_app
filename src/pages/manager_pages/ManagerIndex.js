@@ -5,13 +5,17 @@ import {
     MailOutlined, BellOutlined, CalendarOutlined, SettingOutlined
 } from '@ant-design/icons';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import MANAGER_SERVICE_PATH from '../../config/MANAGER_API_URL';
 import Footer from './components/Footer';
 import FoodShopList from './components/FoodShopList';
 import AddFoodShop from './components/AddFoodShop';
 import FoodShopDetail from './components/FoodShopDetail';
+import FoodItemDetail from './components/FoodItemDetail';
+import AddFoodItem from './components/AddFoodItem';
+import AddFoodItemCategory from './components/AddFoodItemCategory';
+import EditFoodShop from './components/EditFoodShop';
 
 const ManagerIndex = (props) => {
     const [loading, setLoading] = useState(false);
@@ -82,7 +86,11 @@ const ManagerIndex = (props) => {
                                 <Route path="/manager/" exact component={FoodShopList} />
                                 <Route path="/manager/add_food_shop/:manager_id" exact component={AddFoodShop} />
                                 <Route path="/manager/food_shop_detail/:food_shop_id" exact component={FoodShopDetail} />
-                                <Redirect to="/manager/" />
+                                <Route path="/manager/food_item_detail/:food_item_id" exact component={FoodItemDetail} />
+                                <Route path="/manager/add_food_item/:food_shop_id" exact component={AddFoodItem} />
+                                <Route path="/manager/add_food_item_category/:food_shop_id" exact component={AddFoodItemCategory} />
+                                <Route path="/manager/edit_food_shop/:food_shop_id" exact component={EditFoodShop} />
+
                             </div>
                         </Layout.Content>
                         <Footer />
@@ -94,3 +102,5 @@ const ManagerIndex = (props) => {
 }
 
 export default ManagerIndex;
+
+//<Redirect to="/manager/" />

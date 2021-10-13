@@ -11,6 +11,9 @@ const MANAGER_SERVICE_PATH = {
     LOGOUT_URL: IP_URL + "manager_logout/",
     RESET_PASSWORD: IP_URL + "manager_password_reset/",
     GET_MANAGER_DETAIL: IP_URL + "manager_detail",
+    UPDATE_MANAGER_ACCOUNT: IP_URL + "manager_update_account",
+    UPDATE_MANAGER_PROFILE: IP_URL + "manager_update_profile",
+    MANAGER_UPLOAD_AVATAR: IP_URL + "manager_upload_avatar",
 
     ADD_FOOD_SHOP_URL: IP_URL_FOOD_SHOP + "add_food_shop",
     ADD_FOOD_CATEGORY: IP_URL_FOOD_SHOP + "add_food_category",

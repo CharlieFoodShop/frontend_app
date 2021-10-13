@@ -17,6 +17,8 @@ import AddFoodItem from './components/AddFoodItem';
 import AddFoodItemCategory from './components/AddFoodItemCategory';
 import EditFoodShop from './components/EditFoodShop';
 import EditFoodItem from './components/EditFoodItem';
+import SettingAccount from './components/SettingAccount';
+import EditProfile from './components/EditProfile';
 
 const ManagerIndex = (props) => {
     const [loading, setLoading] = useState(false);
@@ -58,6 +60,12 @@ const ManagerIndex = (props) => {
             case '1':
                 props.history.push('/manager/');
                 break;
+            case '5':
+                props.history.push('/manager/setting_account');
+                break;
+            case '6':
+                props.history.push('/manager/edit_profile');
+                break;
             case '7':
                 handleLogout();
                 break;
@@ -74,9 +82,9 @@ const ManagerIndex = (props) => {
                             <Menu.Item key="2" icon={<MailOutlined />}>Message</Menu.Item>
                             <Menu.Item key="3" icon={<BellOutlined />}>Current Order</Menu.Item>
                             <Menu.Item key="4" icon={<CalendarOutlined />}>Order History</Menu.Item>
-                            <Menu.Item key="5" icon={<SettingOutlined />}>Setting</Menu.Item>
+                            <Menu.Item key="5" icon={<SettingOutlined />}>Setting Account</Menu.Item>
                             <Menu.SubMenu title="Account" key="sub1" icon={<UserOutlined />}>
-                                <Menu.Item key="6">Edit Account</Menu.Item>
+                                <Menu.Item key="6">Edit Profile</Menu.Item>
                                 <Menu.Item key="7">Logout</Menu.Item>
                             </Menu.SubMenu>
                         </Menu>
@@ -92,6 +100,8 @@ const ManagerIndex = (props) => {
                                 <Route path="/manager/add_food_item_category/:food_shop_id" exact component={AddFoodItemCategory} />
                                 <Route path="/manager/edit_food_shop/:food_shop_id" exact component={EditFoodShop} />
                                 <Route path="/manager/edit_food_item/:food_item_id" exact component={EditFoodItem} />
+                                <Route path="/manager/setting_account" exact component={SettingAccount} />
+                                <Route path="/manager/edit_profile" exact component={EditProfile} />
                             </div>
                         </Layout.Content>
                         <Footer />

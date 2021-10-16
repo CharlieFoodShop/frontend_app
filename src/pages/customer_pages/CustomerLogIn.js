@@ -5,13 +5,13 @@ import Recaptcha from 'react-google-invisible-recaptcha';
 import axios from 'axios';
 import { UserOutlined, KeyOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
-import '../../static/css/manager_css/login.css'
+import '../../static/css/customer_css/login.css'
 import Footer from './components/Footer';
 
-import MANAGER_SERVICE_PATH from '../../config/MANAGER_API_URL';
+import CUSTOMER_SERVICE_PATH from '../../config/CUSTOMER_API_URL';
 import KEY from '../../config/KEY';
 
-const ManagerLogIn = (props) => {
+const CustomerLogIn = (props) => {
 
     const [loading, setLoading] = useState(false);
 
@@ -23,8 +23,8 @@ const ManagerLogIn = (props) => {
     let recaptcha = null;
 
     useEffect(() => {
-        if (localStorage.getItem('sessionId')) {
-            return props.history.push('/manager');
+        if (localStorage.getItem('customerSessionId')) {
+            return props.history.push('/customer');
         }
     }, []);
 
@@ -55,7 +55,7 @@ const ManagerLogIn = (props) => {
 
         axios({
             method: 'post',
-            url: MANAGER_SERVICE_PATH.LOGIN_URL,
+            url: CUSTOMER_SERVICE_PATH.LOGIN_URL,
             data: data,
             withCredentials: true
         })
@@ -66,11 +66,11 @@ const ManagerLogIn = (props) => {
                         localStorage.setItem('rememberEmail', emailAddress.current.state.value);
                         localStorage.setItem('rememberPass', password.current.state.value);
                     };
-                    localStorage.setItem('sessionId', res.data.sessionId);
-                    localStorage.setItem('managerEmail', emailAddress.current.state.value);
+                    localStorage.setItem('customerSessionId', res.data.customerSessionId);
+                    localStorage.setItem('customerEmail', emailAddress.current.state.value);
                     message.success(res.data.message);
 
-                    return props.history.push('/manager');
+                    return props.history.push('/customer');
                 } else {
                     return message.error(res.data.message);
                 };
@@ -84,7 +84,7 @@ const ManagerLogIn = (props) => {
     return (
         <div className="login-div">
             <Spin tip="Loading..." spinning={loading}>
-                <Card title="Welcome to Charlie's Food Shop for Managers" style={{ width: 400 }} bordered={true}>
+                <Card title="Welcome to Charlie's Food Shop" style={{ width: 400 }} bordered={true}>
                     <Form>
                         <Input
                             id="emailAddress"
@@ -114,10 +114,10 @@ const ManagerLogIn = (props) => {
                         <br /><br />
                         <Row>
                             <Col span={12}>
-                                <Link to="/manager/register" >Do not have account?</Link>
+                                <Link to="/customer/register" >Do not have account?</Link>
                             </Col>
                             <Col span={12} style={{ textAlign: 'right' }}>
-                                <Link to="/manager/reset-password" >Forget password?</Link>
+                                <Link to="/customer/reset-password" >Forget password?</Link>
                             </Col>
                         </Row>
                     </Form>
@@ -134,4 +134,4 @@ const ManagerLogIn = (props) => {
     )
 }
 
-export default ManagerLogIn;
+export default CustomerLogIn;

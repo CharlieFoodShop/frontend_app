@@ -4,13 +4,13 @@ import { Card, Input, Button, Spin, message, Row, Col, Typography, Form } from '
 import Recaptcha from 'react-google-invisible-recaptcha';
 import axios from 'axios';
 import 'antd/dist/antd.css';
-import '../../static/css/manager_css/register.css'
+import '../../static/css/customer_css/register.css'
 import Footer from './components/Footer';
 
-import MANAGER_SERVICE_PATH from '../../config/MANAGER_API_URL';
+import CUSTOMER_SERVICE_PATH from '../../config/CUSTOMER_API_URL';
 import KEY from '../../config/KEY';
 
-const ManagerRegister = (props) => {
+const CustomerRegister = (props) => {
 
     const [loading, setLoading] = useState(false);
 
@@ -59,14 +59,14 @@ const ManagerRegister = (props) => {
 
         axios({
             method: 'post',
-            url: MANAGER_SERVICE_PATH.REGISTER_URL,
+            url: CUSTOMER_SERVICE_PATH.REGISTER_URL,
             data: data
         })
             .then(res => {
                 setLoading(false);
                 if (res.data.success) {
                     message.success(res.data.message);
-                    return props.history.push('/manager/login');
+                    return props.history.push('/customer/login');
                 } else {
                     return message.error(res.data.message);
                 };
@@ -80,7 +80,7 @@ const ManagerRegister = (props) => {
     return (
         <div className="register-div">
             <Spin tip="Loading..." spinning={loading}>
-                <Card title="Create Your Own Manager Account" style={{ width: 600 }} bordered={true}>
+                <Card title="Create Your Own Customer Account" style={{ width: 600 }} bordered={true}>
                     <Form>
                         <Row>
                             <Col span={12}>
@@ -184,7 +184,7 @@ const ManagerRegister = (props) => {
                         </Button>
                         <br /><br />
                         <div span={12} style={{ textAlign: 'right' }}>
-                            <Link to="/manager/login" >Already have account?</Link>
+                            <Link to="/customer/login" >Already have account?</Link>
                         </div>
                     </Form>
                 </Card>
@@ -200,4 +200,4 @@ const ManagerRegister = (props) => {
     )
 }
 
-export default ManagerRegister;
+export default CustomerRegister;

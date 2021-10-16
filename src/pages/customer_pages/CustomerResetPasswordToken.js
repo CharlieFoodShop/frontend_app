@@ -3,13 +3,13 @@ import { Card, Input, Button, Spin, message, Form } from 'antd';
 import Recaptcha from 'react-google-invisible-recaptcha';
 import axios from 'axios';
 import 'antd/dist/antd.css';
-import '../../static/css/manager_css/reset_password.css'
+import '../../static/css/customer_css/reset_password.css'
 import Footer from './components/Footer';
 
-import MANAGER_SERVICE_PATH from '../../config/MANAGER_API_URL';
+import CUSTOMER_SERVICE_PATH from '../../config/CUSTOMER_API_URL';
 import KEY from '../../config/KEY';
 
-const ManagerResetPasswordToken = (props) => {
+const CustomerResetPasswordToken = (props) => {
 
     const [loading, setLoading] = useState(false);
 
@@ -46,19 +46,19 @@ const ManagerResetPasswordToken = (props) => {
         }
         axios({
             method: 'post',
-            url: MANAGER_SERVICE_PATH.RESET_PASSWORD + props.match.params.token,
+            url: CUSTOMER_SERVICE_PATH.RESET_PASSWORD + props.match.params.token,
             data: data
         })
             .then(res => {
                 setLoading(false);
                 message.success(res.data.message);
-                return props.history.push('/manager/login');
+                return props.history.push('/customer/login');
             })
             .catch(e => {
                 setLoading(false);
                 if (e.response.data.message === 'Invalid link or expired') {
                     message.error(e.response.data.message);
-                    return props.history.push('/manager/login');
+                    return props.history.push('/customer/login');
                 } else {
                     return message.error(e.response.data.message);
                 }
@@ -103,4 +103,4 @@ const ManagerResetPasswordToken = (props) => {
     )
 }
 
-export default ManagerResetPasswordToken;
+export default CustomerResetPasswordToken;

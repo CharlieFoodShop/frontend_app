@@ -5,13 +5,13 @@ import Recaptcha from 'react-google-invisible-recaptcha';
 import axios from 'axios';
 import { MailOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
-import '../../static/css/manager_css/reset_password.css'
+import '../../static/css/customer_css/reset_password.css'
 import Footer from './components/Footer';
 
-import MANAGER_SERVICE_PATH from '../../config/MANAGER_API_URL';
+import CUSTOMER_SERVICE_PATH from '../../config/CUSTOMER_API_URL';
 import KEY from '../../config/KEY';
 
-const ManagerResetPassword = (props) => {
+const CustomerResetPassword = (props) => {
 
     const [loading, setLoading] = useState(false);
     const emailAddress = useRef();
@@ -42,14 +42,14 @@ const ManagerResetPassword = (props) => {
 
         axios({
             method: 'post',
-            url: MANAGER_SERVICE_PATH.RESET_PASSWORD,
+            url: CUSTOMER_SERVICE_PATH.RESET_PASSWORD,
             data: data
         })
             .then(res => {
                 setLoading(false);
                 message.success(res.data.message);
 
-                return props.history.push('/manager/login');
+                return props.history.push('/customer/login');
             })
             .catch(e => {
                 setLoading(false);
@@ -76,7 +76,7 @@ const ManagerResetPassword = (props) => {
                         <br /><br />
                         <Button type="primary" size="large" block htmlType="submit" onClick={handleSubmit}>Submit</Button>
                         <br /><br />
-                        <Link to="/manager/login" >Go Back</Link>
+                        <Link to="/customer/login" >Go Back</Link>
                     </Form>
                 </Card>
                 <br /><br />
@@ -91,4 +91,4 @@ const ManagerResetPassword = (props) => {
     )
 }
 
-export default ManagerResetPassword;
+export default CustomerResetPassword;

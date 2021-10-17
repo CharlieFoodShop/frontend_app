@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Menu, message, Spin, Input, Avatar, Row, Col, Divider } from 'antd';
+import { Layout, message, Spin, Input, Avatar, Row, Col, Divider, Menu, Dropdown } from 'antd';
 import { ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -15,12 +15,42 @@ const CustomerIndex = (props) => {
 
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        if (!(localStorage.getItem('customerSessionId') &&
-            localStorage.getItem('customerEmail'))) {
-            props.history.push('/customer/login');
+    const [customerId, setCustomerId] = useState(null);
+    const [firstName, setFirstName] = useState(null);
+    const [lastName, setLastName] = useState(null);
+    const [emailAddress, setEmailAddress] = useState(null);
+    const [phone, setPhone] = useState(null);
+    const [avatarUrl, setAvatarUrl] = useState(null);
+    const [createdAt, setCreatedAt] = useState(null);
+    const [updatedAt, setUpdatedAt] = useState(null);
+
+
+    useEffect(async () => {
+        try {
+            if (!(localStorage.getItem('customerSessionId') &&
+                localStorage.getItem('customerEmail'))) {
+                props.history.push('/customer/login');
+            }
+
+            let customerDetail = await getCustomerDetail(localStorage.getItem('customerEmail'));
+            setCustomerId(customerDetail.customer_id);
+            setFirstName(customerDetail.first_name);
+            setLastName(customerDetail.last_name);
+            setEmailAddress(customerDetail.email_address);
+            setPhone(customerDetail.phone);
+            setAvatarUrl(customerDetail.avatar_url);
+            setCreatedAt(customerDetail.created_at);
+            setUpdatedAt(customerDetail.updated_at);
+
+        } catch (e) {
+            return message.error(e.message);
         }
     }, []);
+
+    const getCustomerDetail = async (email_address) => {
+        let result = await axios({ method: 'get', url: CUSTOMER_SERVICE_PATH.GET_CUSTOMER_DETAIL + "?email_address=" + email_address });
+        return result.data.data;
+    }
 
     const handleLogout = () => {
         setLoading(true);
@@ -54,6 +84,20 @@ const CustomerIndex = (props) => {
     const handleCartOnclick = () => {
         console.log('Cart clicked');
     }
+    const handleMenuClick = (e) => {
+        console.log(e.key);
+    }
+
+    const menu = (
+        <Menu onClick={handleMenuClick}>
+            <Menu.Item key="1" style={{ borderBottom: '1px solid black' }}>Current Order</Menu.Item>
+            <Menu.Item key="2">Order History</Menu.Item>
+            <Menu.Item key="3">Profile</Menu.Item>
+            <Menu.Item key="4">My Favourite</Menu.Item>
+            <Menu.Item key="5">Message</Menu.Item>
+            <Menu.Item key="6">Help</Menu.Item>
+        </Menu>
+    );
 
     return (
         <div>
@@ -86,10 +130,16 @@ const CustomerIndex = (props) => {
                             <span
                                 style={{ cursor: 'pointer' }}
                             >
-                                <Avatar
-                                    size="large"
-                                    icon={<UserOutlined />}
-                                />
+                                <Dropdown
+                                    overlay={menu}
+                                    placement="bottomCenter"
+                                >
+                                    {
+                                        avatarUrl ?
+                                            <Avatar size="large" src={avatarUrl} /> :
+                                            <Avatar size="large" icon={<UserOutlined />} />
+                                    }
+                                </Dropdown>
                             </span>
                         </Col>
                     </Row>
@@ -109,3 +159,11 @@ const CustomerIndex = (props) => {
 }
 
 export default CustomerIndex;
+
+/*
+
+</span>
+
+
+
+*/

@@ -28,7 +28,7 @@ const ManagerIndex = (props) => {
             localStorage.getItem('managerEmail'))) {
             props.history.push('/manager/login');
         }
-    }, [])
+    }, []);
 
     const handleLogout = () => {
         setLoading(true);

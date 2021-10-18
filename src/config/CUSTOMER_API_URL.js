@@ -1,6 +1,6 @@
-// const IP_URL = "http://144.34.175.242/api/customer_api/";
+const IP_URL = "http://144.34.175.242/api/customer_api/";
 
-const IP_URL = "http://localhost:7000/customer_api/";
+// const IP_URL = "http://localhost:7000/customer_api/";
 
 const CUSTOMER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,

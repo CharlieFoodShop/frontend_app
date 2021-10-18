@@ -10,10 +10,12 @@ import '../../static/css/customer_css/header.css';
 import '../../static/css/customer_css/content.css';
 
 import Footer from './components/Footer';
+import Home from './components/Home';
 
 const CustomerIndex = (props) => {
 
     const [loading, setLoading] = useState(false);
+    const [helloTitle, setHelloTitle] = useState('');
 
     const [customerId, setCustomerId] = useState(null);
     const [firstName, setFirstName] = useState(null);
@@ -29,7 +31,7 @@ const CustomerIndex = (props) => {
         try {
             if (!(localStorage.getItem('customerSessionId') &&
                 localStorage.getItem('customerEmail'))) {
-                props.history.push('/customer/login');
+                return props.history.push('/customer/login');
             }
 
             let customerDetail = await getCustomerDetail(localStorage.getItem('customerEmail'));
@@ -42,6 +44,9 @@ const CustomerIndex = (props) => {
             setCreatedAt(customerDetail.created_at);
             setUpdatedAt(customerDetail.updated_at);
 
+            let timeTitle = getTimeTitle();
+            setHelloTitle(timeTitle + ", " + customerDetail.first_name + " " + customerDetail.last_name);
+
         } catch (e) {
             return message.error(e.message);
         }
@@ -50,6 +55,18 @@ const CustomerIndex = (props) => {
     const getCustomerDetail = async (email_address) => {
         let result = await axios({ method: 'get', url: CUSTOMER_SERVICE_PATH.GET_CUSTOMER_DETAIL + "?email_address=" + email_address });
         return result.data.data;
+    }
+
+    const getTimeTitle = () => {
+        let hour = (new Date()).getHours();
+
+        if (hour >= 6 && hour <= 12) {
+            return "Good Morning";
+        } else if (hour > 12 && hour <= 18) {
+            return "Good Afternoon";
+        } else {
+            return "Good Night";
+        }
     }
 
     const handleLogout = () => {
@@ -84,8 +101,13 @@ const CustomerIndex = (props) => {
     const handleCartOnclick = () => {
         console.log('Cart clicked');
     }
+
     const handleMenuClick = (e) => {
-        console.log(e.key);
+        switch (e.key) {
+            case '7':
+                handleLogout();
+                break;
+        }
     }
 
     const menu = (
@@ -96,6 +118,7 @@ const CustomerIndex = (props) => {
             <Menu.Item key="4">My Favourite</Menu.Item>
             <Menu.Item key="5">Message</Menu.Item>
             <Menu.Item key="6">Help</Menu.Item>
+            <Menu.Item key="7">Log Out</Menu.Item>
         </Menu>
     );
 
@@ -106,7 +129,7 @@ const CustomerIndex = (props) => {
                     <Row type="flex" justify="center">
                         <Col xs={24} sm={24} md={8} lg={12} xl={12}>
                             <Link to="/customer/">
-                                <span className="header-logo">Welcome to Online Food Shop</span>
+                                <span className="header-logo">{helloTitle}</span>
                             </Link>
                         </Col>
                         <Col xs={0} sm={0} md={16} lg={10} xl={8}>
@@ -147,7 +170,7 @@ const CustomerIndex = (props) => {
                 <Layout className="comm-main">
                     <Layout.Content style={{ margin: '10px 5%' }}>
                         <div style={{ padding: 24, minHeight: 360 }}>
-                            here
+                            <Route path="/customer/" exact component={Home} />
                         </div>
                     </Layout.Content>
                 </Layout>

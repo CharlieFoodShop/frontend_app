@@ -1,8 +1,10 @@
-const IP_URL = "http://144.34.175.242/api/customer_api/";
-const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/customer_food_shop_api/";
+// const IP_URL = "http://144.34.175.242/api/customer_api/";
+// const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/customer_food_shop_api/";
+// const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/customer_food_item_api/";
 
-// const IP_URL = "http://localhost:7000/customer_api/";
-// const IP_URL_FOOD_SHOP = "http://localhost:7000/customer_food_shop_api/";
+const IP_URL = "http://localhost:7000/customer_api/";
+const IP_URL_FOOD_SHOP = "http://localhost:7000/customer_food_shop_api/";
+const IP_URL_FOOD_ITEM = "http://localhost:7000/customer_food_item_api/";
 
 const CUSTOMER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,
@@ -14,7 +16,14 @@ const CUSTOMER_SERVICE_PATH = {
     UPDATE_CUSTOMER_PROFILE: IP_URL + "customer_update_profile",
     CUSTOMER_UPLOAD_AVATAR: IP_URL + "customer_upload_avatar",
 
-    RANDOM_FOOD_SHOP_POP_UP: IP_URL_FOOD_SHOP + "get_random_food_shops"
+    RANDOM_FOOD_SHOP_POP_UP: IP_URL_FOOD_SHOP + "get_random_food_shops",
+    GET_FAVOURITE_FOOD_SHOPS: IP_URL_FOOD_SHOP + "get_favourite_food_shops",
+    GET_FOOD_SHOP_DETAIL: IP_URL_FOOD_SHOP + "get_food_shop_detail",
+    GET_FOOD_CATEGORIES: IP_URL_FOOD_SHOP + "get_food_category_by_food_shop_id",
+    UPDATE_FAVOURITE_FOOD_SHOP: IP_URL_FOOD_SHOP + "update_favourite_food_shop",
+
+    GET_FOOD_ITEMS_BY_SHOP_ID: IP_URL_FOOD_ITEM + "get_food_items_by_shop_id",
+    GET_FOOD_ITEMS_BY_CATEGORY_ID: IP_URL_FOOD_ITEM + "get_food_items_by_category_id"
 };
 
 export default CUSTOMER_SERVICE_PATH;

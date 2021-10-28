@@ -84,7 +84,6 @@ const FoodShopList = (props) => {
                                 bordered={false}>
                                 <Card.Meta title={item.food_shop_name} description={item.food_shop_description} />
                             </Card>
-
                         </Link>
                     </div>
                 ))

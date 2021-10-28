@@ -11,6 +11,7 @@ import '../../static/css/customer_css/content.css';
 
 import Footer from './components/Footer';
 import Home from './components/Home';
+import FoodShop from './components/FoodShop';
 
 const CustomerIndex = (props) => {
 
@@ -171,6 +172,7 @@ const CustomerIndex = (props) => {
                     <Layout.Content style={{ margin: '10px 5%' }}>
                         <div style={{ padding: 24, minHeight: 360 }}>
                             <Route path="/customer/" exact component={Home} />
+                            <Route path="/customer/food_shop/:food_shop_id" exact component={FoodShop} />
                         </div>
                     </Layout.Content>
                 </Layout>

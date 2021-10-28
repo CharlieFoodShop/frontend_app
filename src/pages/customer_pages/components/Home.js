@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { message, Row, Col, Card, Typography, Button, Divider } from 'antd';
+import { message, Card } from 'antd';
+import { StarOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import CUSTOMER_SERVICE_PATH from '../../../config/CUSTOMER_API_URL';
 
@@ -10,16 +11,15 @@ const Home = () => {
 
     useEffect(async () => {
         try {
-            let result = await getRandomFoodShops();
-            console.log(result);
+            let result = await getRandomFoodShops(localStorage.getItem('customerEmail'));
             setFoodShopList(result);
         } catch (e) {
-            return;
+            return message.error('Sorry, could not get food shops!');
         }
     }, []);
 
-    const getRandomFoodShops = async () => {
-        let results = await axios({ method: 'get', url: CUSTOMER_SERVICE_PATH.RANDOM_FOOD_SHOP_POP_UP });
+    const getRandomFoodShops = async (email_address) => {
+        let results = await axios({ method: 'get', url: CUSTOMER_SERVICE_PATH.RANDOM_FOOD_SHOP_POP_UP + "?email_address=" + email_address });
         return results.data.data;
     }
 
@@ -33,7 +33,19 @@ const Home = () => {
                                 hoverable
                                 cover={<img style={{ height: 200 }} alt="food_shop" src={item.image_url} />}
                                 bordered={false}>
-                                <Card.Meta title={item.food_shop_name} description={item.working_address + "\n" + item.food_shop_category_name} />
+                                <Card.Meta title={item.food_shop_name} description={
+                                    <div>
+                                        <p>{item.working_address}</p>
+                                        <p>{item.food_shop_category_name}
+                                            {
+                                                item.on_favourite ?
+                                                    <span style={{ float: 'right' }}><StarOutlined /></span> :
+                                                    <></>
+                                            }
+                                        </p>
+
+                                    </div>
+                                } />
                             </Card>
                         </Link>
                     </div>

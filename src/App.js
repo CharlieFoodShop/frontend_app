@@ -13,24 +13,28 @@ import ManagerResetPassword from './pages/manager_pages/ManagerResetPassword';
 import ManagerResetPasswordToken from './pages/manager_pages/ManagerResetPasswordToken';
 import ManagerIndex from './pages/manager_pages/ManagerIndex';
 
+import GlobalState from "./context/GlobalState";
+
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/customer/login" exact component={CustomerLogIn} />
-        <Route path="/customer/register" exact component={CustomerRegister} />
-        <Route path="/customer/reset-password/" exact component={CustomerResetPassword} />
-        <Route path="/customer/reset-password/:token" exact component={CustomerResetPasswordToken} />
-        <Route path="/customer/" component={CustomerIndex} />
+    <GlobalState>
+      <Router>
+        <Switch>
+          <Route path="/customer/login" exact component={CustomerLogIn} />
+          <Route path="/customer/register" exact component={CustomerRegister} />
+          <Route path="/customer/reset-password/" exact component={CustomerResetPassword} />
+          <Route path="/customer/reset-password/:token" exact component={CustomerResetPasswordToken} />
+          <Route path="/customer/" component={CustomerIndex} />
 
-        <Route path="/manager/login" exact component={ManagerLogIn} />
-        <Route path="/manager/register" exact component={ManagerRegister} />
-        <Route path="/manager/reset-password/" exact component={ManagerResetPassword} />
-        <Route path="/manager/reset-password/:token" exact component={ManagerResetPasswordToken} />
-        <Route path="/manager/" component={ManagerIndex} />
-        <Redirect to="/manager/login" />
-      </Switch>
-    </Router>
+          <Route path="/manager/login" exact component={ManagerLogIn} />
+          <Route path="/manager/register" exact component={ManagerRegister} />
+          <Route path="/manager/reset-password/" exact component={ManagerResetPassword} />
+          <Route path="/manager/reset-password/:token" exact component={ManagerResetPasswordToken} />
+          <Route path="/manager/" component={ManagerIndex} />
+          <Redirect to="/manager/login" />
+        </Switch>
+      </Router>
+    </GlobalState>
   );
 }
 

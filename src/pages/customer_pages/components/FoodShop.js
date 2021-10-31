@@ -43,7 +43,7 @@ const FoodShop = (props) => {
             setFoodItemList(food_item_list);
 
         } catch (e) {
-            return message.error('Sorry, hanld get food shop detail!');
+            return message.error('Sorry, fail to get food shop detail!');
         }
     }, []);
 

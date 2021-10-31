@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Layout, message, Spin, Input, Avatar, Row, Col, Divider, Menu, Dropdown } from 'antd';
+import React, { useState, useEffect, useContext } from 'react';
+import { Layout, message, Spin, Input, Avatar, Row, Col, Divider, Menu, Dropdown, Badge } from 'antd';
 import { ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -12,8 +12,14 @@ import '../../static/css/customer_css/content.css';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import FoodShop from './components/FoodShop';
+import FoodItem from './components/FoodItem';
+import Cart from './components/Cart';
+
+import ShopContext from '../../context/ShopContext';
 
 const CustomerIndex = (props) => {
+
+    const context = useContext(ShopContext);
 
     const [loading, setLoading] = useState(false);
     const [helloTitle, setHelloTitle] = useState('');
@@ -83,6 +89,8 @@ const CustomerIndex = (props) => {
                 localStorage.removeItem('customerSessionId');
                 localStorage.removeItem('customerEmail');
                 message.success(res.data.message);
+
+                context.clearCart();
                 return props.history.push('/customer/login');
             } else {
                 return message.error(res.data.message);
@@ -100,7 +108,7 @@ const CustomerIndex = (props) => {
     }
 
     const handleCartOnclick = () => {
-        console.log('Cart clicked');
+        return props.history.push('/customer/cart');
     }
 
     const handleMenuClick = (e) => {
@@ -145,11 +153,12 @@ const CustomerIndex = (props) => {
                                 onClick={handleCartOnclick}
                                 style={{ cursor: 'pointer', margin: '3%' }}
                             >
-                                <Avatar
-                                    size="large"
-                                    icon={<ShoppingCartOutlined />}
-
-                                />
+                                <Badge count={context.cart.length}>
+                                    <Avatar
+                                        size="large"
+                                        icon={<ShoppingCartOutlined />}
+                                    />
+                                </Badge>
                             </span>
                             <span
                                 style={{ cursor: 'pointer' }}
@@ -173,6 +182,8 @@ const CustomerIndex = (props) => {
                         <div style={{ padding: 24, minHeight: 360 }}>
                             <Route path="/customer/" exact component={Home} />
                             <Route path="/customer/food_shop/:food_shop_id" exact component={FoodShop} />
+                            <Route path="/customer/food_item/:food_item_id" exact component={FoodItem} />
+                            <Route path="/customer/cart" exact component={Cart} />
                         </div>
                     </Layout.Content>
                 </Layout>

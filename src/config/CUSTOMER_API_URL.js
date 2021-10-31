@@ -1,10 +1,12 @@
 // const IP_URL = "http://144.34.175.242/api/customer_api/";
 // const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/customer_food_shop_api/";
 // const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/customer_food_item_api/";
+// const IP_URL_DELIVER_DRIVER = "http://144.34.175.242/api/deliver_driver_api/";
 
 const IP_URL = "http://localhost:7000/customer_api/";
 const IP_URL_FOOD_SHOP = "http://localhost:7000/customer_food_shop_api/";
 const IP_URL_FOOD_ITEM = "http://localhost:7000/customer_food_item_api/";
+const IP_URL_DELIVER_DRIVER = "http://localhost:7000/deliver_driver_api/";
 
 const CUSTOMER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,
@@ -23,7 +25,10 @@ const CUSTOMER_SERVICE_PATH = {
     UPDATE_FAVOURITE_FOOD_SHOP: IP_URL_FOOD_SHOP + "update_favourite_food_shop",
 
     GET_FOOD_ITEMS_BY_SHOP_ID: IP_URL_FOOD_ITEM + "get_food_items_by_shop_id",
-    GET_FOOD_ITEMS_BY_CATEGORY_ID: IP_URL_FOOD_ITEM + "get_food_items_by_category_id"
+    GET_FOOD_ITEMS_BY_CATEGORY_ID: IP_URL_FOOD_ITEM + "get_food_items_by_category_id",
+    GET_FOOD_ITEM_DETAIL_BY_ID: IP_URL_FOOD_ITEM + "get_food_item_by_id",
+
+    GET_ALL_DRIVER_DETAIL: IP_URL_DELIVER_DRIVER + "get_all_driver_detail"
 };
 
 export default CUSTOMER_SERVICE_PATH;

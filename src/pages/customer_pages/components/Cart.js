@@ -4,10 +4,11 @@ import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import CUSTOMER_SERVICE_PATH from '../../../config/CUSTOMER_API_URL';
 import KEY from '../../../config/KEY';
+import Paypal from './Paypal';
 
 import ShopContext from '../../../context/ShopContext';
 
-const Cart = (props) => {
+const Cart = () => {
 
     const context = useContext(ShopContext);
 
@@ -22,6 +23,8 @@ const Cart = (props) => {
 
     const [foodTotal, setFoodTotal] = useState(0);
     const [driverTotal, setDriverTotal] = useState(0);
+
+    const [checkout, setCheckout] = useState(false);
 
     useEffect(async () => {
         let data = await getDriverList();
@@ -112,7 +115,7 @@ const Cart = (props) => {
         if (selectDriver === -1)
             return message.error("Please select the delivering driver for order");
 
-        console.log("Purchase!");
+        setCheckout(true);
     }
 
     return (
@@ -269,12 +272,27 @@ const Cart = (props) => {
                             placeholder="eg. please add ketchup"
                         />
                         <Divider />
+                        <div>
+                            {
+                                checkout ?
+                                    <Paypal
+                                        address={address}
+                                        lat={lat}
+                                        lon={lon}
+                                        note={note}
+                                        driverId={driverList[selectDriver].deliver_driver_id}
+                                    /> :
+                                    <></>
+                            }
+                        </div>
                         <Row>
                             <Col span={12}>
                                 <Typography.Title level={5}
                                     style={{ float: 'left' }}
                                 >
-                                    Total: ${foodTotal + driverTotal}
+                                    Total: ${
+                                        Math.floor((foodTotal + driverTotal) * 100) / 100
+                                    }
                                 </Typography.Title>
                             </Col>
                             <Col span={12}>

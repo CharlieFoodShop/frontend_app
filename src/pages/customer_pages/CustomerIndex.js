@@ -24,14 +24,7 @@ const CustomerIndex = (props) => {
     const [loading, setLoading] = useState(false);
     const [helloTitle, setHelloTitle] = useState('');
 
-    const [customerId, setCustomerId] = useState(null);
-    const [firstName, setFirstName] = useState(null);
-    const [lastName, setLastName] = useState(null);
-    const [emailAddress, setEmailAddress] = useState(null);
-    const [phone, setPhone] = useState(null);
     const [avatarUrl, setAvatarUrl] = useState(null);
-    const [createdAt, setCreatedAt] = useState(null);
-    const [updatedAt, setUpdatedAt] = useState(null);
 
 
     useEffect(async () => {
@@ -42,14 +35,7 @@ const CustomerIndex = (props) => {
             }
 
             let customerDetail = await getCustomerDetail(localStorage.getItem('customerEmail'));
-            setCustomerId(customerDetail.customer_id);
-            setFirstName(customerDetail.first_name);
-            setLastName(customerDetail.last_name);
-            setEmailAddress(customerDetail.email_address);
-            setPhone(customerDetail.phone);
             setAvatarUrl(customerDetail.avatar_url);
-            setCreatedAt(customerDetail.created_at);
-            setUpdatedAt(customerDetail.updated_at);
 
             let timeTitle = getTimeTitle();
             setHelloTitle(timeTitle + ", " + customerDetail.first_name + " " + customerDetail.last_name);

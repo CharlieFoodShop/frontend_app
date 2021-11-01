@@ -17,6 +17,7 @@ const Paypal = (props) => {
                     method: 'post',
                     url: CUSTOMER_SERVICE_PATH.CREATE_ORDER,
                     data: {
+                        email_address: localStorage.getItem('customerEmail'),
                         item_list: context.cart,
                         address: props.address,
                         driver_id: props.driverId,
@@ -36,8 +37,30 @@ const Paypal = (props) => {
             },
             onApprove: function (data, actions) {
                 return actions.order.capture().then(() => {
-                    message.success('Purchase Complete');
-                    context.clearCart();
+
+                    axios({
+                        method: 'post',
+                        url: CUSTOMER_SERVICE_PATH.ADD_ORDER_TO_DATABASE,
+                        data: {
+                            email_address: localStorage.getItem('customerEmail'),
+                            item_list: context.cart,
+                            address: props.address,
+                            driver_id: props.driverId,
+                            lat: props.lat,
+                            lon: props.lon,
+                            note: props.note
+                        }
+                    }).then((res) => {
+                        if (res.data.success) {
+                            context.clearCart();
+                            return message.success('Purchase Complete');
+                        } else {
+                            return message.error(res.data.message);
+                        }
+                    }).catch(e => {
+                        return message.error(e.message);
+                    });
+
                 })
             }
         }).render(paypal.current);

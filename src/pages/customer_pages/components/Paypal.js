@@ -19,10 +19,7 @@ const Paypal = (props) => {
                     data: {
                         email_address: localStorage.getItem('customerEmail'),
                         item_list: context.cart,
-                        address: props.address,
-                        driver_id: props.driverId,
-                        lat: props.lat,
-                        lon: props.lon,
+                        hst: props.hst,
                         note: props.note
                     }
                 }).then((res) => {
@@ -44,10 +41,7 @@ const Paypal = (props) => {
                         data: {
                             email_address: localStorage.getItem('customerEmail'),
                             item_list: context.cart,
-                            address: props.address,
-                            driver_id: props.driverId,
-                            lat: props.lat,
-                            lon: props.lon,
+                            hst: props.hst,
                             note: props.note
                         }
                     }).then((res) => {

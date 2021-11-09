@@ -1,14 +1,14 @@
-const IP_URL = "http://144.34.175.242/api/customer_api/";
-const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/customer_food_shop_api/";
-const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/customer_food_item_api/";
-const IP_URL_DELIVER_DRIVER = "http://144.34.175.242/api/deliver_driver_api/";
-const IP_URL_ORDER = "http://144.34.175.242/api/customer_order_api/";
+// const IP_URL = "http://144.34.175.242/api/customer_api/";
+// const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/customer_food_shop_api/";
+// const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/customer_food_item_api/";
+// const IP_URL_DELIVER_DRIVER = "http://144.34.175.242/api/deliver_driver_api/";
+// const IP_URL_ORDER = "http://144.34.175.242/api/customer_order_api/";
 
-// const IP_URL = "http://localhost:7000/customer_api/";
-// const IP_URL_FOOD_SHOP = "http://localhost:7000/customer_food_shop_api/";
-// const IP_URL_FOOD_ITEM = "http://localhost:7000/customer_food_item_api/";
-// const IP_URL_DELIVER_DRIVER = "http://localhost:7000/deliver_driver_api/";
-// const IP_URL_ORDER = "http://localhost:7000/customer_order_api/";
+const IP_URL = "http://localhost:7000/customer_api/";
+const IP_URL_FOOD_SHOP = "http://localhost:7000/customer_food_shop_api/";
+const IP_URL_FOOD_ITEM = "http://localhost:7000/customer_food_item_api/";
+const IP_URL_DELIVER_DRIVER = "http://localhost:7000/deliver_driver_api/";
+const IP_URL_ORDER = "http://localhost:7000/customer_order_api/";
 
 const CUSTOMER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,
@@ -24,6 +24,7 @@ const CUSTOMER_SERVICE_PATH = {
     GET_FAVOURITE_FOOD_SHOPS: IP_URL_FOOD_SHOP + "get_favourite_food_shops",
     GET_FOOD_SHOP_DETAIL: IP_URL_FOOD_SHOP + "get_food_shop_detail",
     GET_FOOD_CATEGORIES: IP_URL_FOOD_SHOP + "get_food_category_by_food_shop_id",
+    GET_SEARCH_RESULTS: IP_URL_FOOD_SHOP + "get_search_results",
     UPDATE_FAVOURITE_FOOD_SHOP: IP_URL_FOOD_SHOP + "update_favourite_food_shop",
 
     GET_FOOD_ITEMS_BY_SHOP_ID: IP_URL_FOOD_ITEM + "get_food_items_by_shop_id",

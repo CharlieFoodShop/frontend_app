@@ -14,6 +14,9 @@ import Home from './components/Home';
 import FoodShop from './components/FoodShop';
 import FoodItem from './components/FoodItem';
 import Cart from './components/Cart';
+import EditProfile from './components/EditProfile';
+import MyFavourite from './components/MyFavourite';
+import SearchResults from './components/SearchResults';
 
 import ShopContext from '../../context/ShopContext';
 
@@ -25,7 +28,6 @@ const CustomerIndex = (props) => {
     const [helloTitle, setHelloTitle] = useState('');
 
     const [avatarUrl, setAvatarUrl] = useState(null);
-
 
     useEffect(async () => {
         try {
@@ -90,7 +92,10 @@ const CustomerIndex = (props) => {
     }
 
     const handleSearch = (text) => {
-        console.log(text);
+        if (!text) {
+            return message.warn('Search text can not be blank!');
+        }
+        return props.history.push('/customer/search_results/' + text);
     }
 
     const handleCartOnclick = () => {
@@ -99,6 +104,12 @@ const CustomerIndex = (props) => {
 
     const handleMenuClick = (e) => {
         switch (e.key) {
+            case '3':
+                props.history.push('/customer/edit_profile');
+                break;
+            case '4':
+                props.history.push('/customer/my_favourite');
+                break;
             case '7':
                 handleLogout();
                 break;
@@ -170,6 +181,9 @@ const CustomerIndex = (props) => {
                             <Route path="/customer/food_shop/:food_shop_id" exact component={FoodShop} />
                             <Route path="/customer/food_item/:food_item_id" exact component={FoodItem} />
                             <Route path="/customer/cart" exact component={Cart} />
+                            <Route path="/customer/edit_profile" exact component={EditProfile} />
+                            <Route path="/customer/my_favourite" exact component={MyFavourite} />
+                            <Route path="/customer/search_results/:text" exact component={SearchResults} />
                         </div>
                     </Layout.Content>
                 </Layout>

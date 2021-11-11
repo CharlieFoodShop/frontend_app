@@ -3,12 +3,14 @@
 // const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/customer_food_item_api/";
 // const IP_URL_DELIVER_DRIVER = "http://144.34.175.242/api/deliver_driver_api/";
 // const IP_URL_ORDER = "http://144.34.175.242/api/customer_order_api/";
+// const IP_URL_COMMENT = "http://144.34.175.242/api/customer_comment_api/";
 
 const IP_URL = "http://localhost:7000/customer_api/";
 const IP_URL_FOOD_SHOP = "http://localhost:7000/customer_food_shop_api/";
 const IP_URL_FOOD_ITEM = "http://localhost:7000/customer_food_item_api/";
 const IP_URL_DELIVER_DRIVER = "http://localhost:7000/deliver_driver_api/";
 const IP_URL_ORDER = "http://localhost:7000/customer_order_api/";
+const IP_URL_COMMENT = "http://localhost:7000/customer_comment_api/";
 
 const CUSTOMER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,
@@ -34,7 +36,16 @@ const CUSTOMER_SERVICE_PATH = {
     GET_ALL_DRIVER_DETAIL: IP_URL_DELIVER_DRIVER + "get_all_driver_detail",
 
     CREATE_ORDER: IP_URL_ORDER + "create_order",
-    ADD_ORDER_TO_DATABASE: IP_URL_ORDER + "add_order_to_database"
+    GET_CURRENT_ORDERS: IP_URL_ORDER + "get_current_orders",
+    GET_ORDER_HISTORY: IP_URL_ORDER + "get_order_history",
+    GET_ORDER_DETAIL: IP_URL_ORDER + "get_order_detail_by_order_id",
+    ADD_ORDER_TO_DATABASE: IP_URL_ORDER + "add_order_to_database",
+
+    GET_COMMENT_LIST: IP_URL_COMMENT + "get_comment_list_by_item_id",
+    GET_COMMENT_DETAIL: IP_URL_COMMENT + "get_comment_detail_by_id",
+    ADD_NEW_COMMENT: IP_URL_COMMENT + "add_new_comment",
+    EDIT_COMMENT: IP_URL_COMMENT + "edit_comment",
+    DELETE_COMMENT: IP_URL_COMMENT + "delete_comment"
 };
 
 export default CUSTOMER_SERVICE_PATH;

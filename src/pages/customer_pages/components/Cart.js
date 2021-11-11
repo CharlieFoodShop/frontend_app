@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Input, Row, Col, Divider, Button, Select, Typography, AutoComplete, Card, Avatar } from 'antd';
+import { Input, Row, Col, Divider, Button, Typography } from 'antd';
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons';
 import Paypal from './Paypal';
 

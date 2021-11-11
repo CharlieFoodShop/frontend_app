@@ -17,6 +17,7 @@ import Cart from './components/Cart';
 import EditProfile from './components/EditProfile';
 import MyFavourite from './components/MyFavourite';
 import SearchResults from './components/SearchResults';
+import CurrentOrder from './components/CurrentOrder';
 
 import ShopContext from '../../context/ShopContext';
 
@@ -104,6 +105,9 @@ const CustomerIndex = (props) => {
 
     const handleMenuClick = (e) => {
         switch (e.key) {
+            case '1':
+                props.history.push('/customer/current_order');
+                break;
             case '3':
                 props.history.push('/customer/edit_profile');
                 break;
@@ -184,6 +188,7 @@ const CustomerIndex = (props) => {
                             <Route path="/customer/edit_profile" exact component={EditProfile} />
                             <Route path="/customer/my_favourite" exact component={MyFavourite} />
                             <Route path="/customer/search_results/:text" exact component={SearchResults} />
+                            <Route path="/customer/current_order" exact component={CurrentOrder} />
                         </div>
                     </Layout.Content>
                 </Layout>

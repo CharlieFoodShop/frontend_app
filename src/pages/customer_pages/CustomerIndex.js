@@ -18,6 +18,8 @@ import EditProfile from './components/EditProfile';
 import MyFavourite from './components/MyFavourite';
 import SearchResults from './components/SearchResults';
 import CurrentOrder from './components/CurrentOrder';
+import OrderHistory from './components/OrderHistory';
+import OrderDetail from './components/OrderDetail';
 
 import ShopContext from '../../context/ShopContext';
 
@@ -108,6 +110,9 @@ const CustomerIndex = (props) => {
             case '1':
                 props.history.push('/customer/current_order');
                 break;
+            case '2':
+                props.history.push('/customer/order_history');
+                break;
             case '3':
                 props.history.push('/customer/edit_profile');
                 break;
@@ -189,6 +194,8 @@ const CustomerIndex = (props) => {
                             <Route path="/customer/my_favourite" exact component={MyFavourite} />
                             <Route path="/customer/search_results/:text" exact component={SearchResults} />
                             <Route path="/customer/current_order" exact component={CurrentOrder} />
+                            <Route path="/customer/order_history" exact component={OrderHistory} />
+                            <Route path="/customer/order_detail/:order_id" exact component={OrderDetail} />
                         </div>
                     </Layout.Content>
                 </Layout>

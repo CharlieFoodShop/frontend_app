@@ -20,6 +20,8 @@ import SearchResults from './components/SearchResults';
 import CurrentOrder from './components/CurrentOrder';
 import OrderHistory from './components/OrderHistory';
 import OrderDetail from './components/OrderDetail';
+import FoodAddComment from './components/FoodAddComment';
+import FoodSeeComments from './components/FoodSeeComments';
 
 import ShopContext from '../../context/ShopContext';
 
@@ -196,6 +198,8 @@ const CustomerIndex = (props) => {
                             <Route path="/customer/current_order" exact component={CurrentOrder} />
                             <Route path="/customer/order_history" exact component={OrderHistory} />
                             <Route path="/customer/order_detail/:order_id" exact component={OrderDetail} />
+                            <Route path="/customer/food_add_comment/:food_item_id" exact component={FoodAddComment} />
+                            <Route path="/customer/food_see_comments/:food_item_id" exact component={FoodSeeComments} />
                         </div>
                     </Layout.Content>
                 </Layout>

@@ -40,11 +40,11 @@ const OrderDetail = (props) => {
     }
 
     const handleSeeComments = (food_item_id) => {
-        console.log("see " + food_item_id)
+        return props.history.push("/customer/food_see_comments/" + food_item_id);
     }
 
     const handleAddComment = (food_item_id) => {
-        console.log("add " + food_item_id)
+        return props.history.push('/customer/food_add_comment/' + food_item_id);
     }
 
     return (

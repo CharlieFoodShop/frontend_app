@@ -1,18 +1,18 @@
-// const IP_URL = "http://144.34.175.242/api/customer_api/";
-// const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/customer_food_shop_api/";
-// const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/customer_food_item_api/";
-// const IP_URL_DELIVER_DRIVER = "http://144.34.175.242/api/deliver_driver_api/";
-// const IP_URL_ORDER = "http://144.34.175.242/api/customer_order_api/";
-// const IP_URL_COMMENT = "http://144.34.175.242/api/customer_comment_api/";
-// const IP_URL_HELP = "http://144.34.175.242/api/customer_help_api/";
+const IP_URL = "http://144.34.175.242/api/customer_api/";
+const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/customer_food_shop_api/";
+const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/customer_food_item_api/";
+const IP_URL_DELIVER_DRIVER = "http://144.34.175.242/api/deliver_driver_api/";
+const IP_URL_ORDER = "http://144.34.175.242/api/customer_order_api/";
+const IP_URL_COMMENT = "http://144.34.175.242/api/customer_comment_api/";
+const IP_URL_HELP = "http://144.34.175.242/api/customer_help_api/";
 
-const IP_URL = "http://localhost:7000/customer_api/";
-const IP_URL_FOOD_SHOP = "http://localhost:7000/customer_food_shop_api/";
-const IP_URL_FOOD_ITEM = "http://localhost:7000/customer_food_item_api/";
-const IP_URL_DELIVER_DRIVER = "http://localhost:7000/deliver_driver_api/";
-const IP_URL_ORDER = "http://localhost:7000/customer_order_api/";
-const IP_URL_COMMENT = "http://localhost:7000/customer_comment_api/";
-const IP_URL_HELP = "http://localhost:7000/customer_help_api/";
+// const IP_URL = "http://localhost:7000/customer_api/";
+// const IP_URL_FOOD_SHOP = "http://localhost:7000/customer_food_shop_api/";
+// const IP_URL_FOOD_ITEM = "http://localhost:7000/customer_food_item_api/";
+// const IP_URL_DELIVER_DRIVER = "http://localhost:7000/deliver_driver_api/";
+// const IP_URL_ORDER = "http://localhost:7000/customer_order_api/";
+// const IP_URL_COMMENT = "http://localhost:7000/customer_comment_api/";
+// const IP_URL_HELP = "http://localhost:7000/customer_help_api/";
 
 const CUSTOMER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,

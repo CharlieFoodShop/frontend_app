@@ -1,14 +1,14 @@
-// const IP_URL = "http://144.34.175.242/api/manager_api/";
-// const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/manager_food_shop_api/";
-// const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/manager_food_item_api/";
-// const IP_URL_ORDER = "http://144.34.175.242/api/manager_order_api/";
-// const IP_URL_COMMENT = "http://144.34.175.242/api/manager_comment_api/";
+const IP_URL = "http://144.34.175.242/api/manager_api/";
+const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/manager_food_shop_api/";
+const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/manager_food_item_api/";
+const IP_URL_ORDER = "http://144.34.175.242/api/manager_order_api/";
+const IP_URL_COMMENT = "http://144.34.175.242/api/manager_comment_api/";
 
-const IP_URL = "http://localhost:7000/manager_api/";
-const IP_URL_FOOD_SHOP = "http://localhost:7000/manager_food_shop_api/";
-const IP_URL_FOOD_ITEM = "http://localhost:7000/manager_food_item_api/";
-const IP_URL_ORDER = "http://localhost:7000/manager_order_api/";
-const IP_URL_COMMENT = "http://localhost:7000/manager_comment_api/";
+// const IP_URL = "http://localhost:7000/manager_api/";
+// const IP_URL_FOOD_SHOP = "http://localhost:7000/manager_food_shop_api/";
+// const IP_URL_FOOD_ITEM = "http://localhost:7000/manager_food_item_api/";
+// const IP_URL_ORDER = "http://localhost:7000/manager_order_api/";
+// const IP_URL_COMMENT = "http://localhost:7000/manager_comment_api/";
 
 const MANAGER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,

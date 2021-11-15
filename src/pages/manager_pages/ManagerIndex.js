@@ -19,6 +19,10 @@ import EditFoodShop from './components/EditFoodShop';
 import EditFoodItem from './components/EditFoodItem';
 import SettingAccount from './components/SettingAccount';
 import EditProfile from './components/EditProfile';
+import CurrentOrders from './components/CurrentOrders';
+import OrderHistory from './components/OrderHistory';
+import OrderDetail from './components/OrderDetail';
+import FoodComments from './components/FoodComments';
 
 const ManagerIndex = (props) => {
     const [loading, setLoading] = useState(false);
@@ -59,6 +63,12 @@ const ManagerIndex = (props) => {
         switch (e.key) {
             case '1':
                 props.history.push('/manager/');
+                break;
+            case '3':
+                props.history.push('/manager/current_orders');
+                break;
+            case '4':
+                props.history.push('/manager/order_history');
                 break;
             case '5':
                 props.history.push('/manager/setting_account');
@@ -102,6 +112,10 @@ const ManagerIndex = (props) => {
                                 <Route path="/manager/edit_food_item/:food_item_id" exact component={EditFoodItem} />
                                 <Route path="/manager/setting_account" exact component={SettingAccount} />
                                 <Route path="/manager/edit_profile" exact component={EditProfile} />
+                                <Route path="/manager/current_orders" exact component={CurrentOrders} />
+                                <Route path="/manager/order_history" exact component={OrderHistory} />
+                                <Route path="/manager/order_detail/:order_id" exact component={OrderDetail} />
+                                <Route path="/manager/food_comments/:food_item_id" exact component={FoodComments} />
                             </div>
                         </Layout.Content>
                         <Footer />

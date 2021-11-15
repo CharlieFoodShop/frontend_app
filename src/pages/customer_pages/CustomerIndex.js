@@ -22,6 +22,8 @@ import OrderHistory from './components/OrderHistory';
 import OrderDetail from './components/OrderDetail';
 import FoodAddComment from './components/FoodAddComment';
 import FoodSeeComments from './components/FoodSeeComments';
+import FoodEditComment from './components/FoodEditComment';
+import Help from './components/Help';
 
 import ShopContext from '../../context/ShopContext';
 
@@ -121,6 +123,9 @@ const CustomerIndex = (props) => {
             case '4':
                 props.history.push('/customer/my_favourite');
                 break;
+            case '6':
+                props.history.push('/customer/help');
+                break;
             case '7':
                 handleLogout();
                 break;
@@ -200,6 +205,8 @@ const CustomerIndex = (props) => {
                             <Route path="/customer/order_detail/:order_id" exact component={OrderDetail} />
                             <Route path="/customer/food_add_comment/:food_item_id" exact component={FoodAddComment} />
                             <Route path="/customer/food_see_comments/:food_item_id" exact component={FoodSeeComments} />
+                            <Route path="/customer/food_edit_comment/:food_comment_id" exact component={FoodEditComment} />
+                            <Route path="/customer/help" exact component={Help} />
                         </div>
                     </Layout.Content>
                 </Layout>

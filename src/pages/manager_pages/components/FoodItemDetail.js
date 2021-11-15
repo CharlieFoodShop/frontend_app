@@ -46,6 +46,10 @@ const FoodItemDetail = (props) => {
         return props.history.push('/manager/edit_food_item/' + props.match.params.food_item_id);
     }
 
+    const handleSeeComments = () => {
+        return props.history.push('/manager/food_comments/' + props.match.params.food_item_id);
+    }
+
     return (
         <div>
             <div>
@@ -110,7 +114,7 @@ const FoodItemDetail = (props) => {
             <br /><br />
             <Row>
                 <Col span={12}>
-                    <Button type="primary">See Comments</Button>
+                    <Button type="primary" onClick={handleSeeComments}>See Comments</Button>
                 </Col>
                 <Col span={12}>
                     <div style={{ float: 'right' }}>

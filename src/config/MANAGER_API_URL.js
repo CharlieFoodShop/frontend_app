@@ -1,10 +1,14 @@
 // const IP_URL = "http://144.34.175.242/api/manager_api/";
 // const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/manager_food_shop_api/";
 // const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/manager_food_item_api/";
+// const IP_URL_ORDER = "http://144.34.175.242/api/manager_order_api/";
+// const IP_URL_COMMENT = "http://144.34.175.242/api/manager_comment_api/";
 
 const IP_URL = "http://localhost:7000/manager_api/";
 const IP_URL_FOOD_SHOP = "http://localhost:7000/manager_food_shop_api/";
 const IP_URL_FOOD_ITEM = "http://localhost:7000/manager_food_item_api/";
+const IP_URL_ORDER = "http://localhost:7000/manager_order_api/";
+const IP_URL_COMMENT = "http://localhost:7000/manager_comment_api/";
 
 const MANAGER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,
@@ -32,7 +36,14 @@ const MANAGER_SERVICE_PATH = {
     GET_FOOD_ITEM_CATEGORY_LIST: IP_URL_FOOD_SHOP + "get_food_category_by_food_shop",
     GET_FOOD_ITEM_DETAIL: IP_URL_FOOD_ITEM + "get_food_item_by_food_item_id",
     UPDATE_FOOD_ITEM: IP_URL_FOOD_ITEM + "update_food_item",
-    UPLOAD_FOOD_ITEM_IMAGE: IP_URL_FOOD_ITEM + "upload_food_item_image"
+    UPLOAD_FOOD_ITEM_IMAGE: IP_URL_FOOD_ITEM + "upload_food_item_image",
+
+    GET_CURRENT_ORDERS: IP_URL_ORDER + "get_current_orders",
+    GET_ORDER_HISTORY: IP_URL_ORDER + "get_order_history",
+    GET_ORDER_DETAIL: IP_URL_ORDER + "get_order_detail",
+    COMPLETE_ORDER: IP_URL_ORDER + "complete_order",
+
+    GET_COMMENT_LIST: IP_URL_COMMENT + "get_comment_list_by_item_id"
 }
 
 export default MANAGER_SERVICE_PATH;

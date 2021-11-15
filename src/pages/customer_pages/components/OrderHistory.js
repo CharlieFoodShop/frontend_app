@@ -57,7 +57,11 @@ const OrderHistory = (props) => {
                                             <Typography.Text>{item.created_at}</Typography.Text>
                                         </Col>
                                         <Col span={6}>
-                                            <Typography.Text>{item.order_status_name}</Typography.Text>
+                                            {
+                                                item.order_status_name === 'COMPLETE' ?
+                                                    <Typography.Text style={{ color: 'green', fontWeight: 'bold' }}>{item.order_status_name}</Typography.Text> :
+                                                    <Typography.Text>{item.order_status_name}</Typography.Text>
+                                            }
                                         </Col>
                                         <Col span={6}>
                                             <Button type="primary" onClick={() => handleSeeDetail(item.order_id)}>See Detail</Button>

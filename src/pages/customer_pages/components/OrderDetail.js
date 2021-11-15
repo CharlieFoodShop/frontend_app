@@ -52,7 +52,7 @@ const OrderDetail = (props) => {
             <Typography.Title level={2}>Order ID: {orderId}</Typography.Title>
             <Typography.Title level={4}>Created At: {createdAt}</Typography.Title>
             <Typography.Title level={4}>Completed At: {completedAt ? completedAt : 'Not Available'}</Typography.Title>
-            <Typography.Title level={4}>Status: {orderStatusName}</Typography.Title>
+            <Typography.Title level={4}>Status: {orderStatusName === 'COMPLETE' ? (<span style={{ color: 'green', fontWeight: 'bold' }}>{orderStatusName}</span>) : (<span>{orderStatusName}</span>)}</Typography.Title>
             <br />
             <Typography.Text>Note: {note}</Typography.Text>
             <Divider />
@@ -91,8 +91,8 @@ const OrderDetail = (props) => {
                                 <Typography.Text>$ {Math.floor(item.sub_total * 100) / 100}</Typography.Text>
                             </Col>
                             <Col span={8}>
-                                <Button style={{ marginRight: '3%' }} type="primary" onClick={() => handleSeeComments(item.food_item_id)}>See My Comments</Button>
-                                <Button type="primary" onClick={() => handleAddComment(item.food_item_id)}>Add New Comment</Button>
+                                <Button disabled={orderStatusName === 'PREPARING'} style={{ marginRight: '3%' }} type="primary" onClick={() => handleSeeComments(item.food_item_id)}>See My Comments</Button>
+                                <Button disabled={orderStatusName === 'PREPARING'} type="primary" onClick={() => handleAddComment(item.food_item_id)}>Add New Comment</Button>
                             </Col>
                         </Row>
                         <br />

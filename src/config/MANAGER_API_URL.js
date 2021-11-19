@@ -4,6 +4,7 @@ const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/manager_food_item_api/";
 const IP_URL_ORDER = "http://144.34.175.242/api/manager_order_api/";
 const IP_URL_COMMENT = "http://144.34.175.242/api/manager_comment_api/";
 const IP_URL_REPORT = "http://144.34.175.242/api/manager_report_api/";
+const APPLICATION_URL = 'http://144.34.175.242/manager/';
 
 // const IP_URL = "http://localhost:7000/manager_api/";
 // const IP_URL_FOOD_SHOP = "http://localhost:7000/manager_food_shop_api/";
@@ -11,9 +12,11 @@ const IP_URL_REPORT = "http://144.34.175.242/api/manager_report_api/";
 // const IP_URL_ORDER = "http://localhost:7000/manager_order_api/";
 // const IP_URL_COMMENT = "http://localhost:7000/manager_comment_api/";
 // const IP_URL_REPORT = "http://localhost:7000/manager_report_api/";
+// const APPLICATION_URL = 'http://localhost:3000/manager/';
 
 const MANAGER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,
+    APPLICATION_URL: APPLICATION_URL,
     REGISTER_URL: IP_URL + "manager_register/",
     LOGIN_URL: IP_URL + "manager_login/",
     LOGOUT_URL: IP_URL + "manager_logout/",

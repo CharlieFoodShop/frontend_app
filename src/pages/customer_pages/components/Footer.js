@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className="footer-div">
             {'Copyright © '}
-            <Link to={{ pathname: CUSTOMER_SERVICE_PATH.DEFAULT_URL }} target="_blank">
+            <Link to={{ pathname: CUSTOMER_SERVICE_PATH.APPLICATION_URL }} target="_blank">
                 Charlie's Food Shop
             </Link>
             <div>{new Date().getFullYear()}</div>

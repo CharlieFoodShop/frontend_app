@@ -31,6 +31,7 @@ const Home = () => {
                         <Link to={"/customer/food_shop/" + item.food_shop_id} >
                             <Card
                                 hoverable
+                                style={{ height: 400 }}
                                 cover={<img style={{ height: 200 }} alt="food_shop" src={item.image_url} />}
                                 bordered={false}>
                                 <Card.Meta title={item.food_shop_name} description={

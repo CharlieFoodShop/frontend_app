@@ -39,6 +39,7 @@ const MANAGER_SERVICE_PATH = {
     GET_FOOD_ITEM_DETAIL: IP_URL_FOOD_ITEM + "get_food_item_by_food_item_id",
     UPDATE_FOOD_ITEM: IP_URL_FOOD_ITEM + "update_food_item",
     UPLOAD_FOOD_ITEM_IMAGE: IP_URL_FOOD_ITEM + "upload_food_item_image",
+    DELETE_FOOD_ITEM: IP_URL_FOOD_ITEM + "delete_food_item",
 
     GET_CURRENT_ORDERS: IP_URL_ORDER + "get_current_orders",
     GET_ORDER_HISTORY: IP_URL_ORDER + "get_order_history",

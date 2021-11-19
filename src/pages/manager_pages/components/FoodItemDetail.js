@@ -50,6 +50,26 @@ const FoodItemDetail = (props) => {
         return props.history.push('/manager/food_comments/' + props.match.params.food_item_id);
     }
 
+    const handleDeleteFoodItem = async () => {
+        try {
+            let data = { food_item_id: props.match.params.food_item_id };
+            let result = await axios({
+                method: 'post',
+                url: MANAGER_SERVICE_PATH.DELETE_FOOD_ITEM,
+                data: data
+            });
+
+            if (result.data.success) {
+                message.success('Delete food item successful!');
+                return handleGoBack();
+            } else {
+                return message.error('Sorry, fail to delete item, please try again!');
+            }
+        } catch (e) {
+            return message.error('Action failed, please try again!');
+        }
+    }
+
     return (
         <div>
             <div>
@@ -113,13 +133,14 @@ const FoodItemDetail = (props) => {
             </Row>
             <br /><br />
             <Row>
-                <Col span={12}>
+                <Col span={8}>
                     <Button type="primary" onClick={handleSeeComments}>See Comments</Button>
                 </Col>
-                <Col span={12}>
-                    <div style={{ float: 'right' }}>
-                        <Button type="primary" onClick={handleEditFoodItem}>Edit Food Profile</Button>
-                    </div>
+                <Col span={8}>
+                    <Button type="primary" onClick={handleEditFoodItem}>Edit Food Profile</Button>
+                </Col>
+                <Col span={8}>
+                    <Button type="primary" onClick={handleDeleteFoodItem}>Delete Food Item</Button>
                 </Col>
             </Row>
         </div>

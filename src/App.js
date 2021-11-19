@@ -31,7 +31,8 @@ function App() {
           <Route path="/manager/reset-password/" exact component={ManagerResetPassword} />
           <Route path="/manager/reset-password/:token" exact component={ManagerResetPasswordToken} />
           <Route path="/manager/" component={ManagerIndex} />
-          <Redirect to="/manager/login" />
+
+          <Redirect to="/customer/login" />
         </Switch>
       </Router>
     </GlobalState>

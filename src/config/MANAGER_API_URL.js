@@ -3,12 +3,14 @@ const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/manager_food_shop_api/";
 const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/manager_food_item_api/";
 const IP_URL_ORDER = "http://144.34.175.242/api/manager_order_api/";
 const IP_URL_COMMENT = "http://144.34.175.242/api/manager_comment_api/";
+const IP_URL_REPORT = "http://144.34.175.242/api/manager_report_api/";
 
 // const IP_URL = "http://localhost:7000/manager_api/";
 // const IP_URL_FOOD_SHOP = "http://localhost:7000/manager_food_shop_api/";
 // const IP_URL_FOOD_ITEM = "http://localhost:7000/manager_food_item_api/";
 // const IP_URL_ORDER = "http://localhost:7000/manager_order_api/";
 // const IP_URL_COMMENT = "http://localhost:7000/manager_comment_api/";
+// const IP_URL_REPORT = "http://localhost:7000/manager_report_api/";
 
 const MANAGER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,
@@ -43,7 +45,12 @@ const MANAGER_SERVICE_PATH = {
     GET_ORDER_DETAIL: IP_URL_ORDER + "get_order_detail",
     COMPLETE_ORDER: IP_URL_ORDER + "complete_order",
 
-    GET_COMMENT_LIST: IP_URL_COMMENT + "get_comment_list_by_item_id"
+    GET_COMMENT_LIST: IP_URL_COMMENT + "get_comment_list_by_item_id",
+
+    GET_REPORT_INITIAL_STATE: IP_URL_REPORT + "get_initial_state",
+    GET_SALES_BY_TIME_PERIOD: IP_URL_REPORT + "get_sales_by_time_period",
+    GET_SALES_BY_REGION: IP_URL_REPORT + "get_sales_by_region",
+    GET_SALES_BY_USER_ID: IP_URL_REPORT + "get_sales_by_user_id"
 }
 
 export default MANAGER_SERVICE_PATH;

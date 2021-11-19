@@ -30,9 +30,11 @@ const CUSTOMER_SERVICE_PATH = {
     GET_FOOD_CATEGORIES: IP_URL_FOOD_SHOP + "get_food_category_by_food_shop_id",
     GET_SEARCH_RESULTS: IP_URL_FOOD_SHOP + "get_search_results",
     UPDATE_FAVOURITE_FOOD_SHOP: IP_URL_FOOD_SHOP + "update_favourite_food_shop",
+    ADD_RATING_FOR_FOOD_SHOP: IP_URL_FOOD_SHOP + "add_rating_for_food_shop",
 
     GET_FOOD_ITEMS_BY_SHOP_ID: IP_URL_FOOD_ITEM + "get_food_items_by_shop_id",
     GET_FOOD_ITEMS_BY_CATEGORY_ID: IP_URL_FOOD_ITEM + "get_food_items_by_category_id",
+    GET_FOOD_ITEMS_BY_SEARCH_TEXT: IP_URL_FOOD_ITEM + "get_food_items_by_search_text",
     GET_FOOD_ITEM_DETAIL_BY_ID: IP_URL_FOOD_ITEM + "get_food_item_by_id",
 
     GET_ALL_DRIVER_DETAIL: IP_URL_DELIVER_DRIVER + "get_all_driver_detail",

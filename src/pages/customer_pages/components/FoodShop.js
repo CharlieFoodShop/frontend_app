@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { message, Row, Col, Card, Typography, Button, Divider, Rate, Radio } from 'antd';
+import { message, Row, Col, Card, Typography, Button, Divider, Rate, Radio, Input } from 'antd';
 import axios from 'axios';
 import CUSTOMER_SERVICE_PATH from '../../../config/CUSTOMER_API_URL';
 
@@ -21,6 +21,8 @@ const FoodShop = (props) => {
     const [foodCategoryList, setFoodCategoryList] = useState([]);
     const [foodItemList, setFoodItemList] = useState([]);
 
+    const [rating, setRating] = useState(0);
+    const [ratingDisabled, setRatingDisabled] = useState(false);
 
     useEffect(async () => {
         try {
@@ -114,6 +116,57 @@ const FoodShop = (props) => {
         }
     }
 
+    const handleAddRating = async () => {
+        try {
+            if (!rating)
+                return message.warn('Sorry, rating can not be blank!');
+
+
+            let data = {
+                food_shop_id: props.match.params.food_shop_id,
+                rating: rating
+            };
+
+            let result = await axios({
+                method: 'post',
+                url: CUSTOMER_SERVICE_PATH.ADD_RATING_FOR_FOOD_SHOP,
+                data: data
+            });
+
+            if (result.data.success) {
+                message.success('Thanks for your feedback!');
+                return setRatingDisabled(true);
+            } else {
+                return message.error('Action failed, please try again!');
+            }
+
+        } catch (e) {
+            return message.error('Action failed, please try again!');
+        }
+    }
+
+    const handleSearch = async (text) => {
+        try {
+            if (!text) {
+                return message.warn('Search text can not be blank!');
+            }
+
+            let result = await axios({
+                method: 'get',
+                url: CUSTOMER_SERVICE_PATH.GET_FOOD_ITEMS_BY_SEARCH_TEXT
+                    + "?food_shop_id=" + props.match.params.food_shop_id + "&&search_text=" + text
+            });
+
+            if (result.data.success) {
+                return setFoodItemList(result.data.data);
+            } else {
+                return message.error('Action failed, please try again!');
+            }
+        } catch (e) {
+            return message.error('Action Failed, please try again!');
+        }
+    }
+
     return (
         <div>
             <div style={{ width: '100%', height: '150px', overflow: 'hidden' }}>
@@ -170,8 +223,27 @@ const FoodShop = (props) => {
                 }
             </Typography.Title>
             <Divider />
+            <br />
+            <Rate
+                style={{ backgroundColor: 'white', padding: '1%' }}
+                onChange={value => setRating(value)}
+                disabled={ratingDisabled}
+                value={rating}
+            />
+            <br /><br />
+            <Button type="primary" onClick={handleAddRating} disabled={ratingDisabled}>Add Rate For Food Shop</Button>
+            <br />
+            <Divider />
+            <Input.Search
+                allowClear
+                enterButton
+                style={{ width: '50%' }}
+                placeholder="Search for food"
+                onSearch={handleSearch}
+            />
+            <br /><br />
             <div>
-                <Typography.Text>Category: </Typography.Text>
+                <Typography.Text>Category Filter: </Typography.Text>
                 <Radio.Group
                     onChange={e => handleFoodItemListChange(e.target.value)}
                 >
@@ -190,6 +262,11 @@ const FoodShop = (props) => {
             <br />
             <div>
                 {
+                    foodItemList.length === 0 ?
+                        <Typography.Title level={3}>Sorry, no food items found</Typography.Title> :
+                        <></>
+                }
+                {
                     foodItemList.map((item, index) => (
                         <div style={{ width: 220, float: 'left', margin: '2%' }} key={index}>
                             <Link to={"/customer/food_item/" + item.food_item_id} >
@@ -204,7 +281,7 @@ const FoodShop = (props) => {
                                             {
                                                 item.food_average_rating ?
                                                     <Rate disabled defaultValue={item.food_average_rating} /> :
-                                                    <></>
+                                                    <Rate disabled defaultValue={0} />
                                             }
                                         </div>
                                     } />

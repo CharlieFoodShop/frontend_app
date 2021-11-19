@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Layout, Menu, message, Spin } from 'antd';
 import {
     UserOutlined, CoffeeOutlined,
-    MailOutlined, BellOutlined, CalendarOutlined, SettingOutlined
+    CarryOutOutlined, BellOutlined, CalendarOutlined, SettingOutlined
 } from '@ant-design/icons';
 import axios from 'axios';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import MANAGER_SERVICE_PATH from '../../config/MANAGER_API_URL';
 import Footer from './components/Footer';
@@ -23,6 +23,7 @@ import CurrentOrders from './components/CurrentOrders';
 import OrderHistory from './components/OrderHistory';
 import OrderDetail from './components/OrderDetail';
 import FoodComments from './components/FoodComments';
+import Report from './components/Report';
 
 const ManagerIndex = (props) => {
     const [loading, setLoading] = useState(false);
@@ -64,6 +65,9 @@ const ManagerIndex = (props) => {
             case '1':
                 props.history.push('/manager/');
                 break;
+            case '2':
+                props.history.push('/manager/report');
+                break;
             case '3':
                 props.history.push('/manager/current_orders');
                 break;
@@ -89,7 +93,7 @@ const ManagerIndex = (props) => {
                     <Layout.Sider collapsible>
                         <Menu mode="inline" theme="dark" onClick={handleMenuClick}>
                             <Menu.Item key="1" icon={<CoffeeOutlined />}>Food Shops</Menu.Item>
-                            <Menu.Item key="2" icon={<MailOutlined />}>Message</Menu.Item>
+                            <Menu.Item key="2" icon={<CarryOutOutlined />}>Report</Menu.Item>
                             <Menu.Item key="3" icon={<BellOutlined />}>Current Order</Menu.Item>
                             <Menu.Item key="4" icon={<CalendarOutlined />}>Order History</Menu.Item>
                             <Menu.Item key="5" icon={<SettingOutlined />}>Setting Account</Menu.Item>
@@ -116,6 +120,7 @@ const ManagerIndex = (props) => {
                                 <Route path="/manager/order_history" exact component={OrderHistory} />
                                 <Route path="/manager/order_detail/:order_id" exact component={OrderDetail} />
                                 <Route path="/manager/food_comments/:food_item_id" exact component={FoodComments} />
+                                <Route path="/manager/report" exact component={Report} />
                             </div>
                         </Layout.Content>
                         <Footer />
@@ -128,4 +133,11 @@ const ManagerIndex = (props) => {
 
 export default ManagerIndex;
 
-//<Redirect to="/manager/" />
+
+/*
+
+, Redirect
+<Redirect to="/manager/" />
+<Menu.Item key="2" icon={<MailOutlined />}>Message</Menu.Item>
+
+*/

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row, Input, Button, Typography, Form, Divider, message, Avatar, AutoComplete } from 'antd';
+import { Col, Row, Input, Button, Typography, Divider, message, Avatar, AutoComplete } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import CUSTOMER_SERVICE_PATH from '../../../config/CUSTOMER_API_URL';

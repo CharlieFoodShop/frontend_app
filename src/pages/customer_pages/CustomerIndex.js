@@ -3,7 +3,7 @@ import { Layout, message, Spin, Input, Avatar, Row, Col, Divider, Menu, Dropdown
 import { ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import CUSTOMER_SERVICE_PATH from '../../config/CUSTOMER_API_URL';
 import '../../static/css/customer_css/header.css';
@@ -138,7 +138,6 @@ const CustomerIndex = (props) => {
             <Menu.Item key="2">Order History</Menu.Item>
             <Menu.Item key="3">Profile</Menu.Item>
             <Menu.Item key="4">My Favourite</Menu.Item>
-            <Menu.Item key="5">Message</Menu.Item>
             <Menu.Item key="6">Help</Menu.Item>
             <Menu.Item key="7">Log Out</Menu.Item>
         </Menu>
@@ -221,8 +220,8 @@ export default CustomerIndex;
 
 /*
 
-</span>
+, Redirect
 
-
+<Menu.Item key="5">Message</Menu.Item>
 
 */

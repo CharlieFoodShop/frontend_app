@@ -1,10 +1,10 @@
-const IP_URL = "http://144.34.175.242/api/manager_api/";
-const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/manager_food_shop_api/";
-const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/manager_food_item_api/";
-const IP_URL_ORDER = "http://144.34.175.242/api/manager_order_api/";
-const IP_URL_COMMENT = "http://144.34.175.242/api/manager_comment_api/";
-const IP_URL_REPORT = "http://144.34.175.242/api/manager_report_api/";
-const APPLICATION_URL = 'http://144.34.175.242/manager/';
+const IP_URL = "http://charliesfoodshop.com/api/manager_api/";
+const IP_URL_FOOD_SHOP = "http://charliesfoodshop.com/api/manager_food_shop_api/";
+const IP_URL_FOOD_ITEM = "http://charliesfoodshop.com/api/manager_food_item_api/";
+const IP_URL_ORDER = "http://charliesfoodshop.com/api/manager_order_api/";
+const IP_URL_COMMENT = "http://charliesfoodshop.com/api/manager_comment_api/";
+const IP_URL_REPORT = "http://charliesfoodshop.com/api/manager_report_api/";
+const APPLICATION_URL = 'http://charliesfoodshop.com/manager/';
 
 // const IP_URL = "http://localhost:7000/manager_api/";
 // const IP_URL_FOOD_SHOP = "http://localhost:7000/manager_food_shop_api/";

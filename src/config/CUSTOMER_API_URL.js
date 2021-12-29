@@ -1,11 +1,11 @@
-const IP_URL = "http://144.34.175.242/api/customer_api/";
-const IP_URL_FOOD_SHOP = "http://144.34.175.242/api/customer_food_shop_api/";
-const IP_URL_FOOD_ITEM = "http://144.34.175.242/api/customer_food_item_api/";
-const IP_URL_DELIVER_DRIVER = "http://144.34.175.242/api/deliver_driver_api/";
-const IP_URL_ORDER = "http://144.34.175.242/api/customer_order_api/";
-const IP_URL_COMMENT = "http://144.34.175.242/api/customer_comment_api/";
-const IP_URL_HELP = "http://144.34.175.242/api/customer_help_api/";
-const APPLICATION_URL = 'http://144.34.175.242/customer/';
+const IP_URL = "http://charliesfoodshop.com/api/customer_api/";
+const IP_URL_FOOD_SHOP = "http://charliesfoodshop.com/api/customer_food_shop_api/";
+const IP_URL_FOOD_ITEM = "http://charliesfoodshop.com/api/customer_food_item_api/";
+const IP_URL_DELIVER_DRIVER = "http://charliesfoodshop.com/api/deliver_driver_api/";
+const IP_URL_ORDER = "http://charliesfoodshop.com/api/customer_order_api/";
+const IP_URL_COMMENT = "http://charliesfoodshop.com/api/customer_comment_api/";
+const IP_URL_HELP = "http://charliesfoodshop.com/api/customer_help_api/";
+const APPLICATION_URL = 'http://charliesfoodshop.com/customer/';
 
 // const IP_URL = "http://localhost:7000/customer_api/";
 // const IP_URL_FOOD_SHOP = "http://localhost:7000/customer_food_shop_api/";

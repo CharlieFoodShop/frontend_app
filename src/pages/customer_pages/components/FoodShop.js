@@ -4,6 +4,8 @@ import { message, Row, Col, Card, Typography, Button, Divider, Rate, Radio, Inpu
 import axios from 'axios';
 import CUSTOMER_SERVICE_PATH from '../../../config/CUSTOMER_API_URL';
 
+import '../../../static/css/customer_css/card.css';
+
 
 const FoodShop = (props) => {
 
@@ -268,10 +270,11 @@ const FoodShop = (props) => {
                 }
                 {
                     foodItemList.map((item, index) => (
-                        <div style={{ width: 220, float: 'left', margin: '2%' }} key={index}>
+                        <div className='customize-card' key={index}>
                             <Link to={"/customer/food_item/" + item.food_item_id} >
                                 <Card
                                     hoverable
+                                    style={{ height: 400 }}
                                     cover={<img style={{ height: 200 }} alt="food_item" src={item.image_url} />}
                                     bordered={false}>
                                     <Card.Meta title={item.food_name} description={

@@ -1,18 +1,17 @@
-const IP_URL = "http://charliesfoodshop.com/api/manager_api/";
-const IP_URL_FOOD_SHOP = "http://charliesfoodshop.com/api/manager_food_shop_api/";
-const IP_URL_FOOD_ITEM = "http://charliesfoodshop.com/api/manager_food_item_api/";
-const IP_URL_ORDER = "http://charliesfoodshop.com/api/manager_order_api/";
-const IP_URL_COMMENT = "http://charliesfoodshop.com/api/manager_comment_api/";
-const IP_URL_REPORT = "http://charliesfoodshop.com/api/manager_report_api/";
-const APPLICATION_URL = 'http://charliesfoodshop.com/manager/';
 
-// const IP_URL = "http://localhost:7000/manager_api/";
-// const IP_URL_FOOD_SHOP = "http://localhost:7000/manager_food_shop_api/";
-// const IP_URL_FOOD_ITEM = "http://localhost:7000/manager_food_item_api/";
-// const IP_URL_ORDER = "http://localhost:7000/manager_order_api/";
-// const IP_URL_COMMENT = "http://localhost:7000/manager_comment_api/";
-// const IP_URL_REPORT = "http://localhost:7000/manager_report_api/";
+const base = "http://charliesfoodshop.com/api/";
+// const base = "http://localhost:7000/";
+
+const APPLICATION_URL = 'http://charliesfoodshop.com/manager/';
 // const APPLICATION_URL = 'http://localhost:3000/manager/';
+
+const IP_URL = base + "manager_api/";
+const IP_URL_FOOD_SHOP = base + "manager_food_shop_api/";
+const IP_URL_FOOD_ITEM = base + "manager_food_item_api/";
+const IP_URL_ORDER = base + "manager_order_api/";
+const IP_URL_COMMENT = base + "manager_comment_api/";
+const IP_URL_REPORT = base + "manager_report_api/";
+
 
 const MANAGER_SERVICE_PATH = {
     DEFAULT_URL: IP_URL,

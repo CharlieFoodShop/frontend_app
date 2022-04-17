@@ -1,4 +1,4 @@
-.header{
+.header {
     background-color: #fff;
     padding: .4rem;
     overflow: hidden;
@@ -6,25 +6,35 @@
     border-bottom: 1px solid #ccc;
 }
 
-.header-logo{
-    color:#1e90ff;
+.header-logo {
+    color: #1e90ff;
     font-size: 1.4rem;
     text-align: left;
 }
 
-.header-txt{
+.header-txt {
     font-size: .6rem;
     color: #999;
     display: inline-block;
     padding-left: .3rem;
 }
 
-.ant-menu{
+.ant-menu {
     line-height: 2.8rem;
 }
 
-.ant-menu-item{
+.ant-menu-item {
     font-size: 1rem !important;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+.phone-menu {
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .phone-menu {
+        display: block;
+    }
 }

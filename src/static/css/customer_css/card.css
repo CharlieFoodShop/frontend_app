@@ -1,0 +1,13 @@
+.customize-card {
+    width: 220px;
+    margin: 2%;
+    float: left;
+}
+
+@media only screen and (max-width: 601px) {
+    .customize-card {
+        width: 100%;
+        margin-bottom: 10px;
+        float: left;
+    }
+}

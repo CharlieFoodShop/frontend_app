@@ -33,6 +33,7 @@ const CustomerIndex = (props) => {
 
     const [loading, setLoading] = useState(false);
     const [helloTitle, setHelloTitle] = useState('');
+    const [searchText, setSearchText] = useState('');
 
     const [avatarUrl, setAvatarUrl] = useState(null);
 
@@ -159,6 +160,8 @@ const CustomerIndex = (props) => {
                                 enterButton
                                 style={{ width: '60%', margin: '1% auto' }}
                                 placeholder="Search what you want"
+                                value={searchText}
+                                onChange={e => setSearchText(e.target.value)}
                                 onSearch={handleSearch}
                             />
                             <span
@@ -189,6 +192,31 @@ const CustomerIndex = (props) => {
                         </Col>
                     </Row>
                 </div>
+
+                <div className='phone-menu'>
+                    <Input.Search
+                        allowClear
+                        enterButton
+                        style={{ width: '100%', margin: '1% auto' }}
+                        placeholder="Search what you want"
+                        value={searchText}
+                        onChange={e => setSearchText(e.target.value)}
+                        onSearch={handleSearch}
+                    />
+                    <br />
+                    <Menu mode="inline" style={{ width: '100%' }}>
+                        <Menu.Item onClick={handleCartOnclick} key="0">Cart</Menu.Item>
+                        <Menu.SubMenu key="sub1" title="Menu" onClick={handleMenuClick}>
+                            <Menu.Item key="1" style={{ borderBottom: '1px solid black' }}>Current Order</Menu.Item>
+                            <Menu.Item key="2">Order History</Menu.Item>
+                            <Menu.Item key="3">Profile</Menu.Item>
+                            <Menu.Item key="4">My Favourite</Menu.Item>
+                            <Menu.Item key="6">Help</Menu.Item>
+                            <Menu.Item key="7">Log Out</Menu.Item>
+                        </Menu.SubMenu>
+                    </Menu>
+                </div>
+
                 <Layout className="comm-main">
                     <Layout.Content style={{ margin: '10px 5%' }}>
                         <div style={{ padding: 24, minHeight: 360 }}>

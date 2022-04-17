@@ -5,6 +5,8 @@ import { StarOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import CUSTOMER_SERVICE_PATH from '../../../config/CUSTOMER_API_URL';
 
+import '../../../static/css/customer_css/card.css';
+
 const MyFavourite = () => {
 
     const [foodShopList, setFoodShopList] = useState([]);
@@ -32,7 +34,7 @@ const MyFavourite = () => {
             }
             {
                 foodShopList.map((item, index) => (
-                    <div style={{ width: 220, float: 'left', margin: '2%' }} key={index}>
+                    <div className='customize-card' key={index}>
                         <Link to={"/customer/food_shop/" + item.food_shop_id} >
                             <Card
                                 hoverable

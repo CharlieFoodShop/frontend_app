@@ -34,6 +34,10 @@
 }
 
 @media only screen and (max-width: 767px) {
+    .header {
+        height: auto;
+    }
+
     .phone-menu {
         display: block;
     }
